@@ -1,0 +1,57 @@
+---
+// Assuming a similar import path for Experience type
+import type { Experience } from "@/data/experiences";
+import { Image } from "astro:assets";
+
+type Props = Experience;
+
+const { title, company, description, startDate, endDate, techs, achievements } = Astro.props;
+
+const techToImage = (tech: string) => {
+  if(tech === 'C#') return '../assets/CSharp.png';
+  return `../assets/${tech}.png`;
+};
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/*.{jpeg,jpg,png,gif}');
+
+---
+
+<div
+  class="group flex w-full flex-col gap-4 rounded-lg border border-neutral-700 p-6"
+>
+  <div class="flex-grow">
+    <div class="flex w-full items-center justify-between">
+      <h3 class="text-xl font-semibold text-neutral-100">
+        {company} <span class="text-neutral-400">  {`- ${title}`}</span>
+      </h3>
+      <p class="text-neutral-500">
+        <time datetime="{startDate}">{startDate}</time> - <time
+          datetime="{endDate}">{endDate}</time
+        >
+      </p>
+    </div>
+    <p class="mb-4 mt-4 text-neutral-200">{description}</p>
+    {achievements && (
+      <div class="mt-4">
+        <ul class="list-disc ml-4  text-neutral-200">
+          {achievements.map((achievement) => (
+            <li>{achievement}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+  
+<div class="flex flex-wrap items-end justify-start gap-2">
+  {techs.map((tech) => (
+    <div class="relative rounded border border-neutral-700  hover:border-neutral-300 w-12 h-12 flex items-center justify-center tech-icon has-tooltip tech-icon">
+      <Image src={images[techToImage(tech)]()} alt="" aria-hidden="true" class="p-2 rounded-lg items-center" />
+      <div class="tooltip top-full mt-2 justify-center  ">
+        <span class="bg-neutral-900 text-white text-xs py-1 px-2 rounded">
+          {tech}
+        </span>
+      </div>
+    </div>
+  ))}
+</div>
+  </div>
+</div>
