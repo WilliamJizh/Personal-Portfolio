@@ -21,7 +21,7 @@ const posts = (await getCollection("posts")).sort(function (first, second) {
 });
 ---
 
-<div class="relative h-screen w-full max-w-6xl m-auto">
+<div class="relative m-auto h-screen w-full max-w-6xl">
   <div class="absolute left-0 h-screen w-full lg:left-1/4">
     <script
       type="module"
@@ -33,17 +33,14 @@ const posts = (await getCollection("posts")).sort(function (first, second) {
     ></spline-viewer>
   </div>
 
- <div
-  class="pointer-events-none absolute bottom-0 lg:bottom-24 left-0 flex h-full w-full justify-center lg:justify-start lg:w-1/2 items-center"
->
-  <div class="text-center lg:w-auto lg:m-auto">
-    <h1 class="text-6xl font-bold text-white">William Ji</h1>
-    <p class="mt-2 text-xl text-white">Software Developer</p>
+  <div
+    class="pointer-events-none absolute bottom-0 left-0 flex h-full w-full items-center justify-center lg:bottom-24 lg:w-1/2 lg:justify-start"
+  >
+    <div class="text-center lg:m-auto lg:w-auto">
+      <h1 class="text-6xl font-bold text-white">William Ji</h1>
+      <p class="mt-2 text-xl text-white">Software Developer</p>
+    </div>
   </div>
-</div>
-
-</div>
-
 </div>
 
 <Layout>
@@ -113,26 +110,24 @@ const posts = (await getCollection("posts")).sort(function (first, second) {
       </article>
 
       <article class="flex flex-col gap-2">
-         <h3 class="text-lg text-neutral-100">Contact Me</h3>
+        <h3 class="text-lg text-neutral-100">Contact Me</h3>
         <SocialLinks />
       </article>
 
-
       <a
         href="https://github.com/MaeWolff/astro-portfolio-template"
-        class="inline-flex items-center text-neutral-400 hover:text-neutral-100"
+        class="flex items-center text-neutral-400 hover:text-neutral-100 flex-wrap flex-wrap"
       >
-        Build with
-        <span class="ml-1 flex items-center">
-          Astro
+        <div class="flex items-center mr-1">
+          Build with Astro
           <img
             src="https://astro.js.org/astro.png"
             alt="Astro Logo"
             class="mt-1 h-6 w-6"
-          />
-        </span>, Template adapted from MaeWolff's Astro Portfolio Template
+          />,
+        </div>
+        <div>adapted from MaeWolff's Astro Portfolio Template</div>
       </a>
     </main>
-    
   </div>
 </Layout>
