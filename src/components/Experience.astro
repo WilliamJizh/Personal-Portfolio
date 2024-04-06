@@ -16,23 +16,23 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/*.{jpeg,j
 ---
 
 <div
-  class="group flex w-full flex-col gap-4 rounded-lg border border-neutral-700 p-6"
+  class="group flex w-full flex-col gap-4 rounded-lg p-6 bg-zinc-900"
 >
   <div class="flex-grow">
     <div class="flex w-full items-center justify-between">
       <h3 class="text-xl font-semibold text-neutral-100">
         {company} <span class="text-neutral-400">  {`- ${title}`}</span>
       </h3>
-      <p class="text-neutral-500">
+      <p class="text-neutral-300">
         <time datetime="{startDate}">{startDate}</time> - <time
           datetime="{endDate}">{endDate}</time
         >
       </p>
     </div>
-    <p class="mb-4 mt-4 text-neutral-200">{description}</p>
+    <p class="mb-4 mt-4 text-neutral-300">{description}</p>
     {achievements && (
       <div class="mt-4">
-        <ul class="list-disc ml-4  text-neutral-200">
+        <ul class="list-disc ml-4  text-neutral-300">
           {achievements.map((achievement) => (
             <li>{achievement}</li>
           ))}

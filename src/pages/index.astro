@@ -21,10 +21,35 @@ const posts = (await getCollection("posts")).sort(function (first, second) {
 });
 ---
 
+<div class="relative h-screen w-full max-w-6xl m-auto">
+  <div class="absolute left-0 h-screen w-full lg:left-1/4">
+    <script
+      type="module"
+      src="https://unpkg.com/@splinetool/viewer@1.0.93/build/spline-viewer.js"
+    ></script>
+    <spline-viewer
+      loading-anim-type="none"
+      url="https://prod.spline.design/w3uNrDMICnWnFMTP/scene.splinecode"
+    ></spline-viewer>
+  </div>
+
+ <div
+  class="pointer-events-none absolute bottom-24 left-0 flex h-full w-full justify-center lg:justify-start lg:w-1/2 items-center"
+>
+  <div class="text-center lg:w-auto lg:m-auto">
+    <h1 class="text-6xl font-bold text-white">William Ji</h1>
+    <p class="mt-2 text-xl text-white">Software Developer</p>
+  </div>
+</div>
+
+</div>
+
+</div>
+
 <Layout>
-  <div id="main-content">
+  <div id="main-content" class="m-auto max-w-4xl">
     <main class="flex flex-col gap-20">
-      <article
+      <!-- <article
         class="flex flex-col gap-8 md:flex-row-reverse md:justify-end md:gap-12"
       >
         {
@@ -49,9 +74,9 @@ const posts = (await getCollection("posts")).sort(function (first, second) {
             set:html={convertAsteriskToStrongTag(presentation.description)}
           />
 
-          <SocialLinks />
+          
         </div>
-      </article>
+      </article> -->
 
       <article class="flex flex-col gap-8">
         <header class="flex w-full flex-row justify-between gap-2">
@@ -87,33 +112,27 @@ const posts = (await getCollection("posts")).sort(function (first, second) {
         </section>
       </article>
 
-      <!-- <article class="flex flex-col gap-8">
-        <header class="flex w-full flex-row justify-between gap-2">
-          <h3 class="text-lg text-neutral-100">Get in touch</h3>
-        </header>
-        <p>
-          Email me at <Link
-            href={`mailto:${presentation.mail}`}
-            label={presentation.mail}
-          /> or follow me via my social links.
-        </p>
-
+      <article class="flex flex-col gap-2">
+         <h3 class="text-lg text-neutral-100">Contact Me</h3>
         <SocialLinks />
-      </article> -->
+      </article>
+
+
       <a
         href="https://github.com/MaeWolff/astro-portfolio-template"
         class="inline-flex items-center text-neutral-400 hover:text-neutral-100"
       >
         Build with
-        <span class="flex items-center ml-1">
+        <span class="ml-1 flex items-center">
           Astro
           <img
             src="https://astro.js.org/astro.png"
             alt="Astro Logo"
-            class="mt-1 h-6 w-6 "
+            class="mt-1 h-6 w-6"
           />
         </span>, Template adapted from MaeWolff's Astro Portfolio Template
       </a>
     </main>
+    
   </div>
 </Layout>
