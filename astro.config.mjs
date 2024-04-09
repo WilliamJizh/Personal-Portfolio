@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import { SITE_URL } from "./src/data/config";
 
-import vercel from '@astrojs/vercel/serverless';
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,11 +14,13 @@ export default defineConfig({
     syntaxHighlight: "shiki",
     shikiConfig: {
       theme: "nord",
-      wrap: false
-    }
+      wrap: false,
+    },
   },
-  output: 'server',
+  output: "server",
   adapter: vercel({
-    webAnalytics: { enabled: true }
+    webAnalytics: {
+      enabled: true,
+    },
   }),
 });
